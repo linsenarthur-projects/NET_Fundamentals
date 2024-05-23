@@ -1,0 +1,60 @@
+@model ProjectFitness.Domain.Member
+
+@{
+    ViewBag.Title = "Members detail";
+    Layout = "_Layout";
+}
+
+<h2>Member Details</h2>
+
+<div class="row mt-3">
+    <div class="col-3">Id</div>
+    <div class="col-9">@Model.Id</div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-3">Name</div>
+    <div class="col-9">@Model.Name</div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-3">Birthdate</div>
+    <div class="col-9">@Model.Birthdate.Date.ToString("dd/MM/yyyy")</div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-3">Bodyweight</div>
+    <div class="col-9">@Model.BodyWeight</div>
+</div>
+
+<h2>Exercises of member</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Exercise</th>
+        <th>Reps</th>
+        <th>Sets</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+        foreach (var me in Model.MembersExercises)
+        {
+            <tr>
+                <td>@me.Id</td>
+                <td>@me.Exercise.Name</td>
+                <td>@me.Reps</td>
+                <td>@me.Sets</td>
+                <td>
+                    <a asp-controller="Exercise" 
+                       asp-action="Details" 
+                       asp-route-id="@me.Exercise.Id">Details</a>
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>

@@ -1,0 +1,25 @@
+GET https://localhost:5001/Member/Index/
+
+###
+
+POST https://localhost:5001/Member/Add
+Content-Type: application/x-www-form-urlencoded
+
+BodyWeight=78
+
+###
+
+GET https://localhost:5001/api/fitnesses
+
+###
+
+POST https://localhost:5001/api/fitnesses
+Content-Type: application/x-www-form-urlencoded
+
+name=Fitness Arthur&address=Hulseinde 8&surface=50
+
+###
+
+GET https://localhost:5001/api/Exercises/1/members
+
+###

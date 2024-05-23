@@ -1,0 +1,28 @@
+@model ProjectFitness.UI_MVC.Models.AddMemberViewModel
+
+@{
+    ViewBag.Title = "Members add";
+    Layout = "_Layout";
+}
+
+<h2>New Member</h2>
+
+<form asp-controller="Member" asp-action="Add" method="post">
+
+    <div class="row mb-3">
+        <label asp-for="Name" class="form-label col-3">Name</label>
+        <input asp-for="Name" class="form-control col-9">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="Birthdate" class="form-label col-3">Date of birth</label>
+        <input asp-for="Birthdate" class="form-control col-9" type="date" value="0">
+        <span asp-validation-for="Birthdate" class="text-danger"></span>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="BodyWeight" class="form-label col-3">Bodyweight</label>
+        <input asp-for="BodyWeight" class="form-control col-9">
+        <span asp-validation-for="BodyWeight" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
